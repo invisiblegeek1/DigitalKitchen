@@ -1,0 +1,50 @@
+<div class="Recipe_Form_Container">
+    <div class="Recipe_Form_Header"> <h1>Add Your Recipe Here </h1></div>
+    <form class="Recipe_Form_Section" action="#" method="POST">
+        <div class="Recipe_Form_Left_Pane">
+            <div class="Recipe_Form_Title">
+                <label for="title">Title:</label>
+                <input type="text" name="title" placeholder="Enter Your Title">
+            </div>
+            <div class="Recipe_Form_Image">
+                <label for="image">Upload Your Image:</label>
+                <input type="file" id="Rec" name="img" accept="image/*">
+            </div>
+            <div class="Recipe_Form_Catagory">
+                <select id="catagory_List">
+                    <option value="veg">Recipe Category</option>
+                    <option value="veg">veg</option>
+                    <option value="Non-veg">Non-veg</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Chinese">Chinese</option>
+                    </select>
+            </div>
+
+        </div>
+        <hr>
+        <div class="Recipe_Form_Right_Pane">
+            <div class="Recipe_Ingredients_Container">
+                <div class="Recipe_Form_Ingredient_Count">
+                    <label for="count"> Total Ingredients: </label>
+                    <input type="number" name="Ingredients_Count" placeholder="Total Ingredients">
+                    <button class="Recipe_Form_Count_Submit_button"type="submit" value="Submit">Submit</button>
+                    
+                    <div class="Recipe_Form_Ingredient_List">
+        
+                    </div>
+                </div>
+    
+            </div>
+            <br>
+           
+            <div class="Recipe_Process_Form">
+                <label for="process">  Process: </label>
+                <textarea type="text-area" name="process" placeholder="Recipe procedure... "></textarea>
+            </div>
+
+                <button class="Recipe_Form_Submit_button" type="submit" value="Submit">Submit</button>
+    
+
+        </div>
+    </form>
+</div>
