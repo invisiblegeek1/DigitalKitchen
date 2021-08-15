@@ -6,10 +6,12 @@
                 <label for="title">Title:</label>
                 <input type="text" name="title" placeholder="Enter Your Title" ngModel required>
             </div>
+            <form (ngSubmit)="onSubmit()"  enctype="multipart/form-data">
             <div class="Recipe_Form_Image">
                 <label for="image">Upload Your Image:</label>
-                <input type="file" (change)="OnChangeEvent($Event)" id="Rec" name="file[]" accept="image/*" ngModel required multiple >
+                <input type="file"   name="image" accept="image/*" ngModel required multiple >
             </div>
+            </form>
             <div class="Recipe_Form_Catagory">
                 <select id="catagory_List" name="Category_list" ngModel required>
                     <option value="veg">Recipe Category</option>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeFormService } from '../recipe-form.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-recipe-form',
@@ -8,57 +9,37 @@ import { RecipeFormService } from '../recipe-form.service';
 })
 export class RecipeFormComponent implements OnInit {
   data:Array<any> = []
-  files:File = null 
-  url: String = "https://api.cloudinary.com/v1_1/demo/image/upload"
-
-  constructor(private recipeForm: RecipeFormService) { }
+  fileData: any =null; 
+  url: any = "https://api.cloudinary.com/v1_1/yourbites/image/upload"
+  res :any = null;
+  constructor(private recipeForm: RecipeFormService,private http:HttpClient) { }
 
   ngOnInit(): void {
   }
-
+  fileProgress(fileInput: any) {
+    this.fileData = <any>fileInput.target.files[0];
+}
 
   OnSubmit(data:any){
     console.log(data)
+
+    const formData = new FormData();
+    formData.append('file', this.fileData);
+
+    console.log(this.fileData)
+   
+    this.http.post("https://api.cloudinary.com/v1_1/yourbites/image/upload", formData)
+
+      .subscribe(res => {
+        console.log(res);
+        alert('SUCCESS !!');
+      })
     
-    return this.recipeForm.getRecipeData(data);
+    // return this.recipeForm.getRecipeData(data);
 
   }
-
-  OnChangeEvent(event:Event){
-    this.files=event.target.files[0]
-    
-  }
-  files :any    = document.querySelector("#Rec").files;
-  
+  onSubmit() {
+   
+    }
 
 }
-
-
-// const url = "https://api.cloudinary.com/v1_1/yourbites/image/upload";
-// const form = document.querySelector("form");
-
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   const files = document.querySelector("[type=file]").files;
-//   const formData = new FormData();
-
-//   for (let i = 0; i < files.length; i++) {
-//     let file = files[i];
-//     formData.append("file", file);
-//     formData.append("upload_preset", "docs_upload_example_us_preset");
-
-//     fetch(url, {
-//       method: "POST",
-//       body: formData
-//     })
-//       .then((response) => {
-//         return response.text();
-//       })
-//       .then((data) => {
-//         document.getElementById("data").innerHTML += data;
-//       });
-//   }
-// });
-
-
