@@ -1,46 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeFormService } from '../recipe-form.service';
 import { HttpClient } from '@angular/common/http';
+import {FormArray, FormControl, FormGroup,Validators} from '@angular/forms';
+// import { domainToUnicode } from 'url';
 
 @Component({
   selector: 'app-recipe-form',
   templateUrl: './recipe-form.component.html',
   styleUrls: ['./recipe-form.component.css']
 })
-export class RecipeFormComponent implements OnInit {
-  data:Array<any> = []
-  fileData: any =null; 
-  url: any = "https://api.cloudinary.com/v1_1/yourbites/image/upload"
-  res :any = null;
+export class RecipeFormComponent  {
+  // angForm = new FormGroup({
+  //   names: new FormArray([
+  //    this.ingredients()
+  //   ]),
+  //   // amount : new FormArray([
+  //   //   new FormControl('', Validators.required),
+  //   //   new FormControl('', Validators.required),
+
+  //   // ])
+  // });
+  // ingredients(): FormGroup{
+  //   return new FormGroup({
+  //     name : new FormControl('', Validators.required),
+  //     amount : new FormControl('', Validators.required),
+  //   })
+  // }
+  // get names(): FormArray {
+  //    return this.angForm.get('names') as FormArray;
+     
+  // }
+  // get amount(): FormArray{
+  //   return this.angForm.get('amount') as FormArray;
+  // }
+  // onFormSubmit(): void {
+  //   for (let i = 0; i < this.names.length; i++) {
+  //     console.log(this.names.at(i).value);
+  //   }
+    
+  // }
+  // addNameField() {
+  //   this.names.push(new FormControl('', Validators.required));
+
+  // }
+
+  // deleteNameField(index: number) {
+  //   if (this.names.length !== 1) {
+  //     this.names.removeAt(index);
+  //   }
+  //   console.log(this.names.length);
+  // }
+  data:Array<any> = [] 
+  AddData: Array<any> = []
+
+
+
   constructor(private recipeForm: RecipeFormService,private http:HttpClient) { }
 
   ngOnInit(): void {
   }
-  fileProgress(fileInput: any) {
-    this.fileData = <any>fileInput.target.files[0];
-}
+  
 
   OnSubmit(data:any){
-    console.log(data)
-
-   
-    
+    this.data = [...this.data,...this.AddData]
+    console.log(data)   
     // return this.recipeForm.getRecipeData(data);
+  }
+
+
+
+  addData(){
+    let Name = document.getElementById("Ingredient_Name");
+    let Amount =document.getElementById("Ingredient_Amount")
+    this.AddData = [...this.AddData,...[Name,Amount]]
+    console.log(this.AddData)
 
   }
-  onSubmit() {
-   
-    }
-
 }
-// const formData = new FormData();
-// formData.append('file', this.fileData);
-
-// console.log(this.fileData)
-
-// this.http.post("https://api.cloudinary.com/v1_1/yourbites/image/upload", formData)
-
-//   .subscribe(res => {
-//     console.log(res);
-//     alert('SUCCESS !!');
-//   })

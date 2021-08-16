@@ -1,6 +1,6 @@
 <div class="Login_Form_Container">
     <div class="Login_Form_Header"> <h1>Welcome Back & Login Guys!</h1></div>
-    <form   ngNativeValidate class="Login_Form_Section"     action="#" method="POST">
+    <form   #loginform = "ngForm" ngNativeValidate class="Login_Form_Section"  (ngSubmit) = "OnSubmit(loginform.value)"  action="#" method="POST">
         <div class="Login_Form_Left_Pane">
             <div class="Login_Form_E-Mail">
                 <label for="E-Mail">E-Mail:</label>

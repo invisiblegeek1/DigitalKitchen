@@ -15,9 +15,8 @@
     width: 500px;
     height: 100%;
 }
-.Recipe_Form_Title,.Recipe_Form_Left_Pane,.Recipe_Form_Right_Pane,.Recipe_Form_Catagory,.Recipe_Form_Image,.Recipe_Ingredients_Container {
+.Recipe_Form_Title,.Recipe_Form_Preparation_Time,.Recipe_Form_Left_Pane,.Recipe_Form_Right_Pane,.Recipe_Form_Catagory,.Recipe_Form_Image,.Recipe_Ingredients_Container {
     display: flex;
-    align-items: center;
     text-align: left;
     justify-content: center;
     margin: 20px;
@@ -73,3 +72,13 @@ option{
     align-items: center;
     justify-content: center;
 }
+.error{
+    color: red;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .pad{
+    margin-right: 10px;
+    margin-top: 10px;
+  }

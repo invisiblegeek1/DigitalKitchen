@@ -1,20 +1,24 @@
-<div class="Recipe_Form_Container">
+ <div class="Recipe_Form_Container">
     <div class="Recipe_Form_Header"> <h1>Add Your Recipe Here </h1></div>
     <form   #recipeform ="ngForm" ngNativeValidate class="Recipe_Form_Section"  (ngSubmit) = "OnSubmit(recipeform.value)"   action="#" method="POST">
         <div class="Recipe_Form_Left_Pane">
             <div class="Recipe_Form_Title">
                 <label for="title">Title:</label>
-                <input type="text" name="title" placeholder="Enter Your Title" ngModel required>
+                <input type="text" name="title" placeholder="Enter Your Title" ngModel >
             </div>
-            <form (ngSubmit)="onSubmit()"  enctype="multipart/form-data">
+            <form   enctype="multipart/form-data">
             <div class="Recipe_Form_Image">
                 <label for="image">Upload Your Image:</label>
-                <input type="file"   name="image" accept="image/*" ngModel required multiple >
+                <input type="file"   name="image" accept="image/*" ngModel  multiple >
             </div>
             </form>
+            <div class="Recipe_Form_Preparation_Time">
+                <label for="time">Preparation Time:</label>
+                <input type="text" name="time" placeholder="Enter the Preparation Time" ngModel >
+            </div>
             <div class="Recipe_Form_Catagory">
-                <select id="catagory_List" name="Category_list" ngModel required>
-                    <option value="veg">Recipe Category</option>
+                <label for="Category">Category:</label>
+                <select id="catagory_List" name="Category_list" ngModel >                 
                     <option value="veg">veg</option>
                     <option value="Non-veg">Non-veg</option>
                     <option value="Indian">Indian</option>
@@ -27,21 +31,28 @@
         <div class="Recipe_Form_Right_Pane">
             <div class="Recipe_Ingredients_Container">
                 <div class="Recipe_Form_Ingredient_Count">
-                    <label for="count"> Total Ingredients: </label>
-                    <input type="number" name="Ingredients_Count" placeholder="Total Ingredients" ngModel required>
-                    <button class="Recipe_Form_Count_Submit_button">Add</button>
+                    <label for="count">  Add Ingredients: </label>
+                    
+                    <input type="text" name="Ingredients_Name" id="Ingredient_Name" placeholder="Ingredient Name" ngModel >
+                    <input type="number" name="Ingredients_Amount" id="Ingredients_Amount" placeholder="Total Ingredients" ngModel >
+
+                    <button class="Recipe_Form_Count_Submit_button" (click)="addData()">Add</button>
                     
                     <div class="Recipe_Form_Ingredient_List">
         
                     </div>
+                    
+                    <br><br><br>
+                    <br><br><br>
+
                 </div>
     
             </div>
-            <br>
+            <br><br><br>
            
             <div class="Recipe_Process_Form">
                 <label for="process">  Process: </label>
-                <textarea type="text-area" name="process" placeholder="Recipe procedure... " ngModel required></textarea>
+                <textarea type="text-area" name="process" placeholder="Recipe procedure... " ngModel ></textarea>
             </div>
 
                 <button class="Recipe_Form_Submit_button" type="submit" value="Submit">Submit</button>
@@ -49,4 +60,24 @@
 
         </div>
     </form>
-</div>
+</div> 
+
+
+<!-- <div class="container">
+    <h3>Angular 8 FormArray Example</h3>
+    <form [formGroup] = "angForm" (ngSubmit)="onFormSubmit()">
+      <div formArrayName="names">
+        <div *ngFor="let name of angForm.get('names').controls; index as idx" class="form-group">
+          <input formControlName="name" placeholder="Enter a Name" class="form-control">
+          <input formControlName="amount" placeholder="Enter a amount" class="form-control">
+
+          <label *ngIf="name.invalid" [ngClass] = "'error'"> Name is required. </label>
+          <button type="button" (click)="addNameField()" class="btn btn-success" [ngClass] = "'pad'">Add More Names</button>
+          <button (click)="deleteNameField(idx)" class="btn btn-danger">Delete</button>
+        </div>
+      </div> 
+      <div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </form>
+    </div> -->
