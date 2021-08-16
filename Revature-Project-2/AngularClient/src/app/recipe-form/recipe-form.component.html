@@ -1,4 +1,4 @@
- <div class="Recipe_Form_Container">
+ <!-- <<div class="Recipe_Form_Container"> 
     <div class="Recipe_Form_Header"> <h1>Add Your Recipe Here </h1></div>
     <form   #recipeform ="ngForm" ngNativeValidate class="Recipe_Form_Section"  (ngSubmit) = "OnSubmit(recipeform.value)"   action="#" method="POST">
         <div class="Recipe_Form_Left_Pane">
@@ -60,14 +60,14 @@
 
         </div>
     </form>
-</div> 
+</div> -->
 
 
-<!-- <div class="container">
+<div class="container">
     <h3>Angular 8 FormArray Example</h3>
     <form [formGroup] = "angForm" (ngSubmit)="onFormSubmit()">
       <div formArrayName="names">
-        <div *ngFor="let name of angForm.get('names').controls; index as idx" class="form-group">
+        <div *ngFor="let name of names.controls; index as idx" class="form-group">
           <input formControlName="name" placeholder="Enter a Name" class="form-control">
           <input formControlName="amount" placeholder="Enter a amount" class="form-control">
 
@@ -80,4 +80,4 @@
         <button type="submit" class="btn btn-primary">Send</button>
       </div>
     </form>
-    </div> -->
+    </div> 
