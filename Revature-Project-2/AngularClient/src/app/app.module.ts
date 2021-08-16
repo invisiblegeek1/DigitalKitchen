@@ -12,6 +12,7 @@ import { RecipesContainerComponent } from './recipes-container/recipes-container
 import { RecipeViewComponent } from './recipe-view/recipe-view.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { LandingPageContainerComponent } from './landing-page-container/landing-page-container.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LandingPageContainerComponent } from './landing-page-container/landing-
     RecipesContainerComponent,
     RecipeViewComponent,
     RecipeFormComponent,
-    LandingPageContainerComponent
+    LandingPageContainerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -23,17 +23,7 @@ export class RecipeFormComponent implements OnInit {
   OnSubmit(data:any){
     console.log(data)
 
-    const formData = new FormData();
-    formData.append('file', this.fileData);
-
-    console.log(this.fileData)
    
-    this.http.post("https://api.cloudinary.com/v1_1/yourbites/image/upload", formData)
-
-      .subscribe(res => {
-        console.log(res);
-        alert('SUCCESS !!');
-      })
     
     // return this.recipeForm.getRecipeData(data);
 
@@ -43,3 +33,14 @@ export class RecipeFormComponent implements OnInit {
     }
 
 }
+// const formData = new FormData();
+// formData.append('file', this.fileData);
+
+// console.log(this.fileData)
+
+// this.http.post("https://api.cloudinary.com/v1_1/yourbites/image/upload", formData)
+
+//   .subscribe(res => {
+//     console.log(res);
+//     alert('SUCCESS !!');
+//   })
