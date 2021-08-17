@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule,Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,15 @@ import { RecipeViewComponent } from './recipe-view/recipe-view.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { LandingPageContainerComponent } from './landing-page-container/landing-page-container.component';
 import { LoginComponent } from './login/login.component';
+const routes: Routes=[
+  {path:'landingpage',component: LandingPageContainerComponent},
 
+  {path:'recipeform',component: RecipeFormComponent},
+  {path:'recipes',component: RecipeViewComponent},
+  {path:'login',component: LoginComponent}
+
+
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +36,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(routes),
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule

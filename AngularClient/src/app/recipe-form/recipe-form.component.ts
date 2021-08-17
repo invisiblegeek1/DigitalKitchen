@@ -13,15 +13,24 @@ export class RecipeFormComponent  {
 
 
   profileFormGroup: FormGroup = this.fb.group({
-    title: ['Nag', [Validators.required]],
-    time: ['nag@example.com', [Validators.required]],
-    category: ['veg', [Validators.required]],
-    skills: this.fb.array([])
+    name: ['', [Validators.required]],
+    preparation_time: ['', [Validators.required]],
+    total_time: ['', [Validators.required]],
+    category: this.fb.array([]),
+    items: this.fb.array([]),
+    process: this.fb.array([])
+
   });
 
 
-  get skills(){
-    return this.profileFormGroup.controls['skills'] as FormArray
+  get items(){
+    return this.profileFormGroup.controls['items'] as FormArray
+  }
+  get category(){
+    return this.profileFormGroup.controls['category'] as FormArray
+  }
+  get process(){
+    return this.profileFormGroup.controls['process'] as FormArray
   }
 
   handleSubmit(event: any) {
@@ -31,17 +40,36 @@ export class RecipeFormComponent  {
   }
 
 
-  addNewSkill() {
-    const skillForm: FormGroup = this.fb.group({
+  addNewItems() {
+    const ItemForm: FormGroup = this.fb.group({
       ingredients: [''],
       amount: [0]
     })
-    this.skills.push(skillForm)
+    this.items.push(ItemForm)
+  }
+  addNewCategory() {
+    const CategoryForm: FormGroup = this.fb.group({
+      category: ['']
+    })
+    this.category.push(CategoryForm)
+  }
+  addNewProcess() {
+    const ProcessForm: FormGroup = this.fb.group({
+      process: ['']
+    })
+    this.process.push(ProcessForm)
   }
 
 
-  removeSkill(idx:number) {
-    this.skills.removeAt(idx)
+  removeCategory(idx:number) {
+    this.category.removeAt(idx)
+  }
+
+  removeItems(idx:number) {
+    this.items.removeAt(idx)
+  }
+  removeProcess(idx:number) {
+    this.process.removeAt(idx)
   }
 
   constructor(private fb: FormBuilder) { }
@@ -50,127 +78,3 @@ export class RecipeFormComponent  {
   }
 
 }
-  // orderForm!: FormGroup;
-  // items!: FormArray;
-  // constructor(private formBuilder: FormBuilder) {}
-
-  // ngOnInit() {
-  //   this.orderForm = this.formBuilder.group({
-  //     customerName: '',
-  //     email: '',
-  //     items: this.formBuilder.array([ this.createItem() ])
-  //   });
-  // }
-    
-  //   createItem(): FormGroup {
-  //     return this.formBuilder.group({
-        
-  //       name: '',
-  //       description: '',
-  //       price: ''
-  //     });
-  //   }
-    
-  //   addItem(): void {
-  //     this.items = this.orderForm.get('items') as FormArray;
-  //     this.items.push(this.createItem());
-  //   }
-    
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // angForm = new FormGroup({
-  //   names: new FormArray([
-  //   //  this.ingredients()
-  //   new FormControl('', Validators.required),
-  //   new FormControl('', Validators.required),
-
-  //   ]),
-  //   amount: new FormArray([
-  //     new FormControl('',Validators.required)
-  //   ])
-  
-  // });
-  // ingredients(): FormGroup{
-  //   return new FormGroup({
-  //     name : new FormControl('', Validators.required),
-  //     amount : new FormControl('', Validators.required),
-  //   })
-  // }
-  // get names(): FormArray {
-  //    return this.angForm.get('names') as FormArray;
-     
-  // }
-  // get amount(): FormArray{
-  //   return this.angForm.get('amount') as FormArray;
-  // }
-  // onFormSubmit(): void {
-  //   for (let i = 0; i < this.names.length; i++) {
-  //     console.log(this.names.at(i).value);
-  //   }
-  //   for (let i = 0; i < this.amount.length; i++) {
-  //     console.log(this.amount.at(i).value);
-  //   }
-    
-  // }
-  // addNameField() {
-  //   this.names.push(new FormControl('', Validators.required));
-  //   this.amount.push(new FormControl('', Validators.required));
-  // }
-
-  // deleteNameField(index: number) {
-  //   if (this.names.length !== 1) {
-  //     this.names.removeAt(index);
-  //   }
-  //   console.log(this.names.length);
-  // }
-  // data:Array<any> = [] 
-  // AddData: Array<any> = []
-
-
-
-  // constructor(private recipeForm: RecipeFormService,private http:HttpClient) { }
-
-  // ngOnInit(): void {
-  // }
-  
-
-  // OnSubmit(data:any){
-  //   this.data = [...this.data,...this.AddData]
-  //   console.log(data)   
-  //   // return this.recipeForm.getRecipeData(data);
-  // }
-
-
-
-  // addData(){
-  //   let Name = document.getElementById("Ingredient_Name");
-  //   let Amount =document.getElementById("Ingredient_Amount")
-  //   this.AddData = [...this.AddData,...[Name,Amount]]
-  //   console.log(this.AddData)
-
-  // }
-// }
-

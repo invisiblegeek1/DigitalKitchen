@@ -1,0 +1,22 @@
+.Navbar_sidenav {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(245, 245, 241);
+    overflow: hidden;
+    padding-top: 30px;
+}
+
+.Navbar_sidenav a{
+    padding: 3px  4px 3px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(24, 21, 21);
+    display: block;
+}
+
+.Navbar_sidenav a:hover{
+    color: #181717;
+}

@@ -1,101 +1,45 @@
-<!-- <div class="Recipe_Form_Container"> 
-    <div class="Recipe_Form_Header"> <h1>Add Your Recipe Here </h1></div>
-    <form   #recipeform ="ngForm" ngNativeValidate class="Recipe_Form_Section"  (ngSubmit) = "OnSubmit(recipeform.value)"   action="#" method="POST"> 
-    <form   [formGroup]="" class="Recipe_Form_Section"  (ngSubmit) = ""  >
-    
-        <div class="Recipe_Form_Left_Pane">
-            <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" name="title" placeholder="Enter Your Title" ngModel >
-            </div>
-            
-            <div class="Recipe_Form_Image">
-                <label for="image">Upload Your Image:</label>
-                <input type="file"   name="image" accept="image/*" ngModel  multiple >
-            </div> 
-           
-            <div class="Recipe_Form_Preparation_Time">
-                <div class="form-group">
-                <label for="time">Preparation Time:</label>
-                <input type="text" name="time" placeholder="Enter the Preparation Time" ngModel >
-            </div>
-            </div>>
-            <div class="Recipe_Form_Catagory">
-                <div class="form-group">
-                <label for="Category">Category:</label>
-                <select id="catagory_List" name="Category_list" ngModel >                 
-                    <option value="veg">veg</option>
-                    <option value="Non-veg">Non-veg</option>
-                    <option value="Indian">Indian</option>
-                    <option value="Chinese">Chinese</option>
-                    </select>
-                    </div>
-            </div>
 
-        </div>
-        <hr>
-        <div class="Recipe_Form_Right_Pane">
-            <div class="Recipe_Ingredients_Container">
-                <div class="Recipe_Form_Ingredient_Count">
-                    <label for="count">  Add Ingredients: </label>
-                    
-                    <input type="text" name="Ingredients_Name" id="Ingredient_Name" placeholder="Ingredient Name" ngModel >
-                    <input type="number" name="Ingredients_Amount" id="Ingredients_Amount" placeholder="Total Ingredients" ngModel >
-
-                    <button class="Recipe_Form_Count_Submit_button" (click)="addData()">Add</button>
-                    
-                    <div class="Recipe_Form_Ingredient_List">
-        
-                    </div>
-                    
-                    <br><br><br>
-                    <br><br><br>
-
-                </div>
-    
-            </div>
-            <br><br><br>
-           
-            <div class="Recipe_Process_Form">
-                <label for="process">  Process: </label>
-                <textarea type="text-area" name="process" placeholder="Recipe procedure... " ngModel ></textarea>
-            </div>
-
-                <button class="Recipe_Form_Submit_button" type="submit" value="Submit">Submit</button>
-    
-
-        </div>
-    </form>
-</div> -->
-<div class="row">
-    <div class="col-6">
+<div class="Recipe_Form_Container">
+    <div class="Recipe_Form_Section">
         <form [formGroup]="profileFormGroup" (submit)="handleSubmit($event)">
             <div class="form-group">
-                <label>Title</label>
-                <input class="form-control" formControlName="title" />
+                <label>Name</label>
+                <input class="form-control" formControlName="name" />
             </div>
             <div class="form-group">
                 <label>Preparation Time:</label>
-                <input class="form-control" formControlName="time" />
+                <input class="form-control" formControlName="preparation_time" />
             </div>
             <div class="form-group">
-                <label>Category</label>
-                <select id="catagory_List" name="Category_list" formControlName="category" >                 
-                    <option value="veg">veg</option>
-                    <option value="Non-veg">Non-veg</option>
-                    <option value="Indian">Indian</option>
-                    <option value="Chinese">Chinese</option>
-                    </select>
+                <label>Serving  Time:</label>
+                <input class="form-control" formControlName="total_time" />
             </div>
-            <ng-container formArrayName="skills">
-                <ng-container *ngFor="let sk of skills.controls;let idx=index;">
+          
+            <ng-container formArrayName="category">
+                <ng-container *ngFor="let a of category.controls;let idx=index;">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <form [formGroup]="a">
+                            <div class="input-group mb-3" >
+                                <input class="form-control" placeholder="Category" formControlName="category" />
+                                <button (click)="removeCategory(0)" type="button" class="Recipe_Form_Delete_button">delete</button>
+                            </div>
+                        </form>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <br />
+            <button (click)="addNewCategory()" type="button" class="Recipe_Form_Add_button">Add Category</button>
+            <br />
+            <ng-container formArrayName="items">
+                <ng-container *ngFor="let i of items.controls;let idx=index;">
                     <div class="form-group">
                         <label>Ingredients</label>
-                        <form [formGroup]="sk">
+                        <form [formGroup]="i">
                             <div class="input-group mb-3" >
                                 <input class="form-control" placeholder="incredients" formControlName="ingredients" />
                                 <input class="form-control" placeholder="amount" formControlName="amount" />
-                                <button (click)="removeSkill(0)" type="button" class="btn btn-sm btn-danger">delete</button>
+                                <button (click)="removeItems(0)" type="button" class="Recipe_Form_Delete_button">delete</button>
                             </div>
                         </form>
                     </div>
@@ -103,11 +47,34 @@
                 </ng-container>
             </ng-container>
             <br />
-            <button (click)="addNewSkill()" type="button" class="btn btn-sm btn-success">Add new Skill</button>
+            <button (click)="addNewItems()" type="button" class="Recipe_Form_Add_button">Add Ingredients</button>
             <br />
+            <ng-container formArrayName="process">
+                <ng-container *ngFor="let b of process.controls;let idx=index;">
+                    <div class="form-group">
+                        <label>Process</label>
+                        <form [formGroup]="b">
+                            <div class="input-group mb-3" >
+                                <input class="form-control" placeholder="Enter the Process" formControlName="process" />
+                                <button (click)="removeProcess(0)" type="button" class="Recipe_Form_Delete_button">delete</button>
+                            </div>
+                        </form>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <br />
+            <button (click)="addNewProcess()" type="button" class="Recipe_Form_Add_button">Add Process</button>
+            <br />
+
+
+
+
+
+
             <hr />
-            <button class="btn btn-primary">submit</button>
+            <button class="Recipe_Form_Submit_button">submit</button>
             <hr />
         </form>
     </div>
+    
 </div>
