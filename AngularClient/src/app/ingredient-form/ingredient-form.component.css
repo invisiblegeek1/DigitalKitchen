@@ -1,0 +1,49 @@
+.Ingredient_Name_Input{
+    display: flex;
+    width: 200px;
+    height: 45px;
+    box-sizing: border-box;
+    padding: 10px;
+    outline: none;
+    border: 2px solid #bababa;
+    color: rgb(17, 16, 16);
+    font-size: 20px;
+
+}
+.Ingredient_Amount_Input{
+    display: flex;
+    width: 150px;
+    height: 45px;
+    box-sizing: border-box;
+    padding: 10px;
+    outline: none;
+    border: 2px solid #bababa;
+    color: rgb(17, 16, 16);
+    font-size: 20px;
+
+}
+
+.Recipe_Form_Ingredient_List{
+    display: inline-flex;
+    flex-flow: row;
+    margin-top: 5px;
+}
+.Recipe_Form_Count_Submit_button{
+    margin-left: 5px;
+    padding: 2px 10px;
+    font-size: large;
+    font-family: helvetica, arial;
+    font-weight: 200;
+    cursor: pointer;
+    color:#fff !important;
+    background-color: red;
+    /* background-color: rgba(57, 215, 236, 0.781); */
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    margin-right: 20px;
+    width: 100px;
+    height: 45px;
+    color: #000
+
+}

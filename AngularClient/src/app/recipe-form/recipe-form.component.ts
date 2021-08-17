@@ -50,7 +50,9 @@ export class RecipeFormComponent implements OnInit {
   }
 
   removeIngredient(i:any){
+    if(i>0){
     this.IngredientList.removeAt(i);
+  }
   }
 
 
