@@ -14,6 +14,31 @@
                 <label>Serving  Time:</label>
                 <input class="form-control" formControlName="total_time" />
             </div>
+
+            <ng-container formArrayName="nutrition">
+                <ng-container *ngFor="let i of nutrition.controls;let idx=index;">
+                    <div class="form-group">
+                        <label>Nutrition</label>
+                        <form [formGroup]="i">
+                            <div class="input-group mb-3" >
+                                <input class="form-control" placeholder="Nutrition" formControlName="nutrition" />
+                                <input class="form-control" placeholder="amount" formControlName="amount" />
+                                <button (click)="removeNutrition(0)" type="button" class="Recipe_Form_Delete_button">delete</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </ng-container>
+            </ng-container>
+            <br />
+            <button (click)="addNewNutrition()" type="button" class="Recipe_Form_Add_button">Add Nutrition Values</button>
+            <br />
+
+
+
+
+
+
           
             <ng-container formArrayName="category">
                 <ng-container *ngFor="let a of category.controls;let idx=index;">

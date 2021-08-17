@@ -16,6 +16,7 @@ export class RecipeFormComponent  {
     name: ['', [Validators.required]],
     preparation_time: ['', [Validators.required]],
     total_time: ['', [Validators.required]],
+    nutrition: this.fb.array([]),
     category: this.fb.array([]),
     items: this.fb.array([]),
     process: this.fb.array([])
@@ -32,6 +33,9 @@ export class RecipeFormComponent  {
   get process(){
     return this.profileFormGroup.controls['process'] as FormArray
   }
+  get nutrition(){
+    return this.profileFormGroup.controls['nutrition'] as FormArray
+  }
 
   handleSubmit(event: any) {
     if (this.profileFormGroup.valid) {
@@ -46,6 +50,13 @@ export class RecipeFormComponent  {
       amount: [0]
     })
     this.items.push(ItemForm)
+  }
+  addNewNutrition() {
+    const NutritionForm: FormGroup = this.fb.group({
+      nutrition: [''],
+      amount: [0]
+    })
+    this.nutrition.push(NutritionForm)
   }
   addNewCategory() {
     const CategoryForm: FormGroup = this.fb.group({
@@ -70,6 +81,10 @@ export class RecipeFormComponent  {
   }
   removeProcess(idx:number) {
     this.process.removeAt(idx)
+  }
+
+  removeNutrition(idx:number) {
+    this.nutrition.removeAt(idx)
   }
 
   constructor(private fb: FormBuilder) { }
