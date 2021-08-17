@@ -28,18 +28,27 @@
 .Recipe_Ingredients_Container >.Recipe_Form_Ingredient_Count{
     display: flex;
     justify-content: center;
-    flex-flow: row;
+    flex-flow: column;
     width: 400px;
     height: 120px;
 
 }
-.Recipe_Process_Form,.Recipe_Ingredients_Container{
+.Recipe_Process_Form{
     display: flex;
     justify-content: center;
     flex-flow: column;
     width: 400px;
     height: 100px;
     
+
+}
+.Recipe_Ingredients_Container{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    width: 400px;
+    height: 250px;
+    overflow-y: scroll;
 
 }
 label{
@@ -57,7 +66,7 @@ label{
 input,#catagory_List{
     display: flex;
     width: 400px;
-    height: 80px;
+    height: 45px;
     box-sizing: border-box;
     padding: 10px;
     outline: none;
@@ -116,9 +125,3 @@ option{
     justify-content: center;
 }
 
-.Recipe_Form_Ingredient_Count,.Recipe_Ingredients_Container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex-flow: column;
-}

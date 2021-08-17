@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { RecipesContainerComponent } from './recipes-container/recipes-container
 import { RecipeViewComponent } from './recipe-view/recipe-view.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { LandingPageContainerComponent } from './landing-page-container/landing-page-container.component';
+import { IngredientFormComponent } from './ingredient-form/ingredient-form.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { LandingPageContainerComponent } from './landing-page-container/landing-
     RecipesContainerComponent,
     RecipeViewComponent,
     RecipeFormComponent,
-    LandingPageContainerComponent
+    LandingPageContainerComponent,
+    IngredientFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

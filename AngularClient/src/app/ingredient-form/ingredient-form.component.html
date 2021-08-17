@@ -1,0 +1,16 @@
+<form [formGroup]="childForm" >
+    <div class="Recipe_Form_Ingredient_Count" >
+        <label for="count"> Total Ingredients: </label>
+        <input type="text" name="Ingredients_Count" placeholder="Total Ingredients..."
+        formControlName="Name">
+        <input type="number" name="Ingredients_Count" placeholder="Total Ingredients count..."
+        formControlName="Amount">
+        <button class="Recipe_Form_Count_Submit_button" (click)=" RemoveEvent()">remove</button>
+        
+        <div class="Recipe_Form_Ingredient_List">
+    
+        </div>
+    </div>
+
+</form>
+
