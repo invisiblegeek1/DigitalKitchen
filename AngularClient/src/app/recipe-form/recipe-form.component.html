@@ -1,22 +1,27 @@
- <!-- <<div class="Recipe_Form_Container"> 
+<!-- <div class="Recipe_Form_Container"> 
     <div class="Recipe_Form_Header"> <h1>Add Your Recipe Here </h1></div>
-    <form   #recipeform ="ngForm" ngNativeValidate class="Recipe_Form_Section"  (ngSubmit) = "OnSubmit(recipeform.value)"   action="#" method="POST">
+    <form   #recipeform ="ngForm" ngNativeValidate class="Recipe_Form_Section"  (ngSubmit) = "OnSubmit(recipeform.value)"   action="#" method="POST"> 
+    <form   [formGroup]="" class="Recipe_Form_Section"  (ngSubmit) = ""  >
+    
         <div class="Recipe_Form_Left_Pane">
-            <div class="Recipe_Form_Title">
+            <div class="form-group">
                 <label for="title">Title:</label>
                 <input type="text" name="title" placeholder="Enter Your Title" ngModel >
             </div>
-            <form   enctype="multipart/form-data">
+            
             <div class="Recipe_Form_Image">
                 <label for="image">Upload Your Image:</label>
                 <input type="file"   name="image" accept="image/*" ngModel  multiple >
-            </div>
-            </form>
+            </div> 
+           
             <div class="Recipe_Form_Preparation_Time">
+                <div class="form-group">
                 <label for="time">Preparation Time:</label>
                 <input type="text" name="time" placeholder="Enter the Preparation Time" ngModel >
             </div>
+            </div>>
             <div class="Recipe_Form_Catagory">
+                <div class="form-group">
                 <label for="Category">Category:</label>
                 <select id="catagory_List" name="Category_list" ngModel >                 
                     <option value="veg">veg</option>
@@ -24,6 +29,7 @@
                     <option value="Indian">Indian</option>
                     <option value="Chinese">Chinese</option>
                     </select>
+                    </div>
             </div>
 
         </div>
@@ -61,23 +67,47 @@
         </div>
     </form>
 </div> -->
+<div class="row">
+    <div class="col-6">
+        <form [formGroup]="profileFormGroup" (submit)="handleSubmit($event)">
+            <div class="form-group">
+                <label>Title</label>
+                <input class="form-control" formControlName="title" />
+            </div>
+            <div class="form-group">
+                <label>Preparation Time:</label>
+                <input class="form-control" formControlName="time" />
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select id="catagory_List" name="Category_list" formControlName="category" >                 
+                    <option value="veg">veg</option>
+                    <option value="Non-veg">Non-veg</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Chinese">Chinese</option>
+                    </select>
+            </div>
+            <ng-container formArrayName="skills">
+                <ng-container *ngFor="let sk of skills.controls;let idx=index;">
+                    <div class="form-group">
+                        <label>Ingredients</label>
+                        <form [formGroup]="sk">
+                            <div class="input-group mb-3" >
+                                <input class="form-control" placeholder="incredients" formControlName="ingredients" />
+                                <input class="form-control" placeholder="amount" formControlName="amount" />
+                                <button (click)="removeSkill(0)" type="button" class="btn btn-sm btn-danger">delete</button>
+                            </div>
+                        </form>
+                    </div>
 
-
-<div class="container">
-    <h3>Angular 8 FormArray Example</h3>
-    <form [formGroup] = "angForm" (ngSubmit)="onFormSubmit()">
-      <div formArrayName="names">
-        <div *ngFor="let name of names.controls; index as idx" class="form-group">
-          <input formControlName="name" placeholder="Enter a Name" class="form-control">
-          <input formControlName="amount" placeholder="Enter a amount" class="form-control">
-
-          <label *ngIf="name.invalid" [ngClass] = "'error'"> Name is required. </label>
-          <button type="button" (click)="addNameField()" class="btn btn-success" [ngClass] = "'pad'">Add More Names</button>
-          <button (click)="deleteNameField(idx)" class="btn btn-danger">Delete</button>
-        </div>
-      </div> 
-      <div>
-        <button type="submit" class="btn btn-primary">Send</button>
-      </div>
-    </form>
-    </div> 
+                </ng-container>
+            </ng-container>
+            <br />
+            <button (click)="addNewSkill()" type="button" class="btn btn-sm btn-success">Add new Skill</button>
+            <br />
+            <hr />
+            <button class="btn btn-primary">submit</button>
+            <hr />
+        </form>
+    </div>
+</div>

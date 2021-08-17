@@ -27,10 +27,10 @@
 
             <button class="Login_Form_Register_button" onclick="document.getElementById('Register_Form').style.display='block'" style="width:auto;" type="submit" value="Submit">Register Here ></button>
             <div class="Login_Register_Form_Section" id="Register_Form">
-                <form class="Login_Register_Form" action="" method="POST">
+                <form #registerform="ngForm" ngNativeValidate  (ngSubmit)="OnSubmit(registerform.value)" class="Login_Register_Form" action="" method="POST">
                     <div class="Login_Register_Form_Username">
                         <label for="username">UserName:</label>
-                        <input type="text" placeholder="Enter your Username" name="username" ngModel required>
+                        <input type="text" placeholder="Enter your Username" name="username"  ngModel required>
                     </div>
                     <div class="Login_Register_Form_E-Mail">
                         <label for="E-Mail">E-Mail:</label>
