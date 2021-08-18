@@ -10,8 +10,6 @@ import {FormArray, FormControl, FormGroup,Validators, FormBuilder} from '@angula
   styleUrls: ['./recipe-form.component.css']
 })
 export class RecipeFormComponent  {
-
-
   profileFormGroup: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     preparation_time: ['', [Validators.required]],
@@ -40,11 +38,24 @@ export class RecipeFormComponent  {
 
   handleSubmit(event: any) {
     if (this.profileFormGroup.valid) {
-      // console.log(this.profileFormGroup.value);
-      // const resultArray = Object.keys(this.process).map(function (index) {
-      //       let process1 = FormGroup.pr.toString()
-      //       return process1
-      // });
+      let categoryList= this.profileFormGroup.controls['category'].value.map( ( el:any )=>{ 
+        return el.category; 
+       });
+
+       let stepsList= this.profileFormGroup.controls['process'].value.map( ( el:any )=>{
+        return el.process; 
+       } );
+
+      let recipe:any={
+        name:this.profileFormGroup.controls['name'].value,
+    preparation_time:this.profileFormGroup.controls['preparation_time'].value,
+    total_time:this.profileFormGroup.controls['total_time'].value ,
+    nutrition:this.profileFormGroup.controls['nutrition'].value,
+    category:categoryList,
+    items:this.profileFormGroup.controls['items'].value ,
+    process:stepsList 
+      }
+   
     }
   }
 
