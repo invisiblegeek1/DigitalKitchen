@@ -12,8 +12,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  OnSubmit(data:any){
-    console.log(data)
+  OnSubmit(loginData:any){
+    console.log(loginData)
+  }
+  onSubmit(registerData:any){
+    console.log(registerData)
   }
   isShow = false
   showForm(){
