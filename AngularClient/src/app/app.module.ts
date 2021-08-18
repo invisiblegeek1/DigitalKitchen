@@ -14,11 +14,13 @@ import { RecipeViewComponent } from './recipe-view/recipe-view.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { LandingPageContainerComponent } from './landing-page-container/landing-page-container.component';
 import { LoginComponent } from './login/login.component';
+
 const routes: Routes=[
   {path:'Home',component: LandingPageContainerComponent},
 
   {path:'recipeform',component: RecipeFormComponent},
-  {path:'recipes',component: RecipeViewComponent},
+  {path:'recipe',component: RecipeViewComponent},
+  {path:'recipes',component:RecipesContainerComponent},
   {path:'login',component: LoginComponent}
 
 
