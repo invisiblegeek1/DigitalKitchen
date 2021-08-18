@@ -15,5 +15,10 @@ export class LoginComponent implements OnInit {
   OnSubmit(data:any){
     console.log(data)
   }
+  isShow = false
+  showForm(){
+    console.log("Displayed")
+    this.isShow = !this.isShow;
+  }
 
 }

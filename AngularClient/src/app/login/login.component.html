@@ -28,8 +28,8 @@
 
             <h2>Click Here to Register New Account.</h2>
 
-            <button class="Login_Form_Register_button" type="submit" value="Submit">Register Here ></button>
-            <div class="Login_Register_Form_Section" id="Register_Form">
+            <button class="Login_Form_Register_button" (click)="showForm()" type="submit" value="Submit">Register Here.</button>
+            <div *ngIf="isShow"class="Login_Register_Form_Section" id="Register_Form">
                 <form #registerform="ngForm" ngNativeValidate (ngSubmit)="OnSubmit(registerform.value)"
                     class="Login_Register_Form" action="" method="POST">
                     <div class="Login_Register_Form_Username">
