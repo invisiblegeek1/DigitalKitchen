@@ -9,10 +9,8 @@
 }
 .Login_Form_Section{
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-flow: row;
-    width: 500px;
+    width: 400px;
     height: 100%;
 }
 .Login_Form_E-Mail{
@@ -21,28 +19,46 @@
     justify-content: center;
     margin: 20px;
     width: 400px;
-    height: 80px;
+    height: 40px;
     flex-flow: column
 
 }
-.Login_Form_Left_Pane,.Login_Form_Right_Pane {
+.Login_Form_Password{
     display: flex;
-    align-items: center;
     text-align: left;
     justify-content: center;
     margin: 20px;
     width: 400px;
-    height: 80px;
+    height: 40px;
     flex-flow: column
-    
-    
+
 }
+*{
+    box-sizing: border-box;
+}
+.Login_Form_Right_Column{
+    float: right;
+    width: 50%;
+    padding: 50px;
+    height: 350px;
+}
+.Login_Form_Left_Column{
+    float: left;
+    width: 50%;
+    padding: 50px;
+    height: 350px;
+}
+.Login_Form_Row :after{
+    display: table;
+    clear: both;
+}
+
 input{
     display: flex;
     width: 400px;
-    height: 80px;
+    height: 50px;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 20px;
     outline: none;
     border: 2px solid #bababa;
     color: rgb(17, 16, 16);
@@ -61,9 +77,10 @@ hr{
 .Login_Form_Submit_button{
     margin-top: 6px;
     padding: 2px 10px;
+    margin-left: 35%;
     font-size: large;
     font-family: helvetica, arial;
-    font-weight: 200;
+    font-weight: 400;
     cursor: pointer;
     color:#fff;
     background-color: rgba(18, 20, 20, 0.781);
@@ -76,7 +93,8 @@ hr{
     
 }
 .Login_Form_Register_button{
-    margin-top: 1px;        
+    margin-top: 1px;   
+    margin-left: 20%;     
     padding: 4px 20px;
     font-size: large;
     font-family: helvetica, arial;

@@ -1,41 +1,48 @@
-<div class="Login_Form_Container">
-    <div class="Login_Form_Header">
-        <h1>Welcome Back & Login Guys!</h1>
-    </div>
-    <form #loginform="ngForm" ngNativeValidate class="Login_Form_Section" (ngSubmit)="OnSubmit(loginform.value)"
-        action="#" method="POST">
-        <div class="Login_Form_Left_Pane">
-            <div class="Login_Form_E-Mail">
-                <label for="E-Mail">E-Mail:</label>
-                <input type="text" name="e-mail" placeholder="Enter Your E-Mail" ngModel required>
+<div class="Login_Form_Row">
+    <div class="Login_Form_Left_Column">
+        <div class="Login_Form_Container">
+            <div class="Login_Form_Header">
+                <h1>Welcome Back & Login Guys!</h1>
             </div>
-            <div class="Login_Form_Password">
-                <label for="Password">Password:</label>
-                <input type="password" name="password" placeholder="Enter Your Password" ngModel required>
-            </div>
-            <br><br>
-            <button class="Login_Form_Submit_button" type="submit" value="Submit">Submit</button>
+            <form #loginform="ngForm" ngNativeValidate class="Login_Form_Section" (ngSubmit)="OnSubmit(loginform.value)"
+                action="#" method="POST">
+                <div class="Login_Form_Left_Pane">
+                    <div class="Login_Form_E-Mail">
+                        <label for="E-Mail">E-Mail:</label>
+                        <input type="text" name="e-mail" placeholder="Enter Your E-Mail" ngModel required>
+                    </div>
+                    <br />
+                    <div class="Login_Form_Password">
+                        <label for="Password">Password:</label>
+                        <input type="password" name="password" placeholder="Enter Your Password" ngModel required>
+                    </div>
+                    <br><br>
+                    <button class="Login_Form_Submit_button" type="submit" value="Submit">Submit</button>
 
+                </div>
+            </form>
+            
         </div>
-    </form>
-    <br><br><br><br>
-      <br><br><br><br><br><br>
-      <br><br>
-        <div class="Login_Form_Right_Pane">
+    </div>
+        <div class="Login_Form_Right_Column">
 
             <h2>Click Here to Register New Account.</h2>
 
-            <button class="Login_Form_Register_button" onclick="document.getElementById('Register_Form').style.display='block'" style="width:auto;" type="submit" value="Submit">Register Here ></button>
+            <button class="Login_Form_Register_button" type="submit" value="Submit">Register Here ></button>
             <div class="Login_Register_Form_Section" id="Register_Form">
-                <form #registerform="ngForm" ngNativeValidate  (ngSubmit)="OnSubmit(registerform.value)" class="Login_Register_Form" action="" method="POST">
+                <form #registerform="ngForm" ngNativeValidate (ngSubmit)="OnSubmit(registerform.value)"
+                    class="Login_Register_Form" action="" method="POST">
                     <div class="Login_Register_Form_Username">
-                        <label for="username">UserName:</label>
-                        <input type="text" placeholder="Enter your Username" name="username"  ngModel required>
+                        <label for="name">Name:</label>
+                        <input type="text" placeholder="Enter your Name" name="name" ngModel required>
                     </div>
+                    <br />
                     <div class="Login_Register_Form_E-Mail">
                         <label for="E-Mail">E-Mail:</label>
                         <input type="text" placeholder="Enter your E-Mail" name="email" ngModel required>
                     </div>
+                    <br />
+
                     <div class="Login_Register_Form_Password">
                         <label for="Password">Password:</label>
                         <input type="text" placeholder="Enter your Password" name="password" ngModel required>
@@ -47,15 +54,4 @@
             </div>
 
         </div>
-    <script>
-        // Get the modal
-        var modal = document.getElementById('Register_Form');
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-        </script>
 </div>

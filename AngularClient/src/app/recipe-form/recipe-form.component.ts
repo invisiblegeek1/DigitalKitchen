@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeFormService } from '../recipe-form.service';
 import { HttpClient } from '@angular/common/http';
 import {FormArray, FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms';
-// import { domainToUnicode } from 'url';
+
 
 @Component({
   selector: 'app-recipe-form',
@@ -31,6 +31,7 @@ export class RecipeFormComponent  {
     return this.profileFormGroup.controls['category'] as FormArray
   }
   get process(){
+    
     return this.profileFormGroup.controls['process'] as FormArray
   }
   get nutrition(){
@@ -39,7 +40,11 @@ export class RecipeFormComponent  {
 
   handleSubmit(event: any) {
     if (this.profileFormGroup.valid) {
-      console.log(this.profileFormGroup.value);
+      // console.log(this.profileFormGroup.value);
+      // const resultArray = Object.keys(this.process).map(function (index) {
+      //       let process1 = FormGroup.pr.toString()
+      //       return process1
+      // });
     }
   }
 
@@ -68,6 +73,7 @@ export class RecipeFormComponent  {
     const ProcessForm: FormGroup = this.fb.group({
       process: ['']
     })
+    
     this.process.push(ProcessForm)
   }
 
