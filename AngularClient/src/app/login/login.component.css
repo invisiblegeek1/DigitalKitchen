@@ -7,12 +7,14 @@
     justify-content: center;
     flex-flow: column;    
     padding: 30px;
+    margin-left: 50px;
 }
 .Login_Form_Section{
     display: flex;
     flex-flow: row;
     width: 400px;
     height: 100%;
+    margin-left: 20%;
     
 }
 .Login_Form_E-Mail{
@@ -22,7 +24,7 @@
     margin: 20px;
     width: 400px;
     height: 40px;
-    flex-flow: column
+    flex-flow: column;
 
 }
 .Login_Form_Password{
@@ -39,14 +41,14 @@
     box-sizing: border-box;
 }
 .Login_Form_Right_Column{
-    flex: 50%;
 
     float: right;
     width: 50%;
-    margin-top: 5%;
-    padding-left: 1%;
+    margin-top: 9%;
+    padding-left: 250px;
+     
 
-    padding: 50px;
+    
     height: 350px;
 }
 .Login_Form_Left_Column{
@@ -62,17 +64,24 @@
     clear: both;
 
 }
+label{
+    text-align: left;
+    padding-left: 10px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
 
 input{
     display: flex;
     width: 400px;
-    height: 50px;
     box-sizing: border-box;
     padding: 20px;
-    outline: none;
-    border: 2px solid #bababa;
-    color: rgb(17, 16, 16);
     font-size: 20px;
+    background-color: rgb(229, 239, 243);
+    outline: none;
+    border: none;
+    padding: 15px 13px;
+    border-radius: 10px;
       
 }
 hr{
@@ -82,6 +91,7 @@ hr{
 }
 
 .Login_Form_Header{
+    margin-left:100px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .Login_Form_Submit_button{
@@ -92,11 +102,11 @@ hr{
     font-family: helvetica, arial;
     font-weight: 400;
     cursor: pointer;
-    color:#fff;
-    background-color: rgba(18, 20, 20, 0.781);
+    color:rgb(12, 1, 1);
+    background-color: rgb(220, 241, 32);
     outline: none;
     border: none;
-    border-radius: 2px;
+    border-radius: 20px;
     margin-right: 20px;
     width: 100px;
     height: 40px;
@@ -110,11 +120,11 @@ hr{
     font-family: helvetica, arial;
     font-weight: 200;
     cursor: pointer;
-    color:#fff;
-    background-color: rgba(18, 20, 20, 0.781);
+    color:rgb(8, 0, 0);
+    background-color: rgba(243, 247, 10, 0.781);
     outline: none;
     border: none;
-    border-radius: 2px;
+    border-radius: 20px;
     margin-right: 20px;
     width: 150px;
     height: 50px;
