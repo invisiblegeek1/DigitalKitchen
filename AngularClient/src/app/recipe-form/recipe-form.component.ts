@@ -37,6 +37,7 @@ export class RecipeFormComponent  {
   }
 
   handleSubmit(event: any) {
+
     if (this.profileFormGroup.valid) {
       let categoryList= this.profileFormGroup.controls['category'].value.map( ( el:any )=>{ 
         return el.category; 
@@ -48,28 +49,33 @@ export class RecipeFormComponent  {
 
       let recipe:any={
         name:this.profileFormGroup.controls['name'].value,
-    preparation_time:this.profileFormGroup.controls['preparation_time'].value,
-    total_time:this.profileFormGroup.controls['total_time'].value ,
-    nutrition:this.profileFormGroup.controls['nutrition'].value,
-    category:categoryList,
-    items:this.profileFormGroup.controls['items'].value ,
-    process:stepsList 
+        preparation_time:this.profileFormGroup.controls['preparation_time'].value,
+        total_time:this.profileFormGroup.controls['total_time'].value ,
+        nutrients:this.profileFormGroup.controls['nutrition'].value,
+        category:categoryList,
+        ingredients:this.profileFormGroup.controls['items'].value ,
+        steps:stepsList 
       }
-   
-    }
+
+   console.log(recipe);
+
+   this.recipeService.saveRecipe(recipe).subscribe((response)=>{
+     console.log(response);
+   });
   }
+}
 
 
   addNewItems() {
     const ItemForm: FormGroup = this.fb.group({
-      ingredients: [''],
-      amount: [0]
+      name: [''],
+      quantity: [0]
     })
     this.items.push(ItemForm)
   }
   addNewNutrition() {
     const NutritionForm: FormGroup = this.fb.group({
-      nutrition: [''],
+      name: [''],
       amount: [0]
     })
     this.nutrition.push(NutritionForm)
@@ -104,7 +110,7 @@ export class RecipeFormComponent  {
     this.nutrition.removeAt(idx)
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private recipeService:RecipeFormService) { }
 
   ngOnInit(): void {
   }
