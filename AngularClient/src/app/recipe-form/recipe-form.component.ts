@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeFormService } from '../recipe-form.service';
 import { HttpClient } from '@angular/common/http';
 import {FormArray, FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms';
+import firebase from 'firebase';
 
 
 @Component({
@@ -11,11 +12,16 @@ import {FormArray, FormControl, FormGroup,Validators, FormBuilder} from '@angula
 })
 export class RecipeFormComponent  {
 
+  Imagefile: any;
+  recipe:any;
+  imageUrl:any;
+
 
   profileFormGroup: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     preparation_time: ['', [Validators.required]],
     total_time: ['', [Validators.required]],
+    ImageUrl: [''],
     nutrition: this.fb.array([]),
     category: this.fb.array([]),
     items: this.fb.array([]),
@@ -38,6 +44,45 @@ export class RecipeFormComponent  {
     return this.profileFormGroup.controls['nutrition'] as FormArray
   }
 
+  handleFileInput(files: any){
+    this.Imagefile = files.item(0);
+    this.fireBaseUpload();
+
+
+
+  }
+  fireBaseUpload(){
+    let name="123"+Date.now();
+    let storageRef = firebase.storage().ref('/images/'+ name);
+    let uploadTask = storageRef.put(this.Imagefile);
+    uploadTask.on('state_changed',(snapshot)=>{
+
+      switch (snapshot.state) {
+        case firebase.storage.TaskState.PAUSED:
+          console.log('Upload is paused');
+          break;
+        case firebase.storage.TaskState.RUNNING:
+          console.log('Upload is running');
+          break;
+      }
+
+
+    },(error)=>{console.log(error)},()=>{
+      uploadTask.snapshot.ref.getDownloadURL().then(
+        (downloadURL)=> {
+
+       // You get your url from here
+        console.log('File available at', downloadURL);
+        this.imageUrl=downloadURL;
+
+      
+     
+    });
+    });
+
+
+  }
+
   handleSubmit(event: any) {
 
     if (this.profileFormGroup.valid) {
@@ -49,9 +94,10 @@ export class RecipeFormComponent  {
         return el.process; 
        } );
 
-      let recipe:any={
+      this.recipe={
         name:this.profileFormGroup.controls['name'].value,
         preparation_time:this.profileFormGroup.controls['preparation_time'].value,
+        image_url:this.imageUrl,
         total_time:this.profileFormGroup.controls['total_time'].value ,
         nutrition:this.profileFormGroup.controls['nutrition'].value,
         category:categoryList,
@@ -59,8 +105,8 @@ export class RecipeFormComponent  {
         process:stepsList 
       }
 
-   console.log(recipe);
-   this.recipeService.saveRecipe(recipe).subscribe((response)=>{
+   console.log(this.recipe);
+   this.recipeService.saveRecipe(this.recipe).subscribe((response)=>{
     console.log(response);
   },(err)=>{
     console.log(err);

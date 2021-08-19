@@ -20,6 +20,10 @@
                 <label>Total  Time:</label>
                 <input class="form-control" placeholder="Total Time"formControlName="total_time" />
             </div>
+            <div class="form-group">
+                <label>Recipe Image</label>
+                <input class="form-control" type="file" placeholder="file"formControlName="ImageUrl" (change)="handleFileInput($event.target.files)" />
+            </div>
         </div>
 
             
@@ -126,7 +130,7 @@
             
             
     </div>
-    <button class="Recipe_Form_Submit_button" style="font-size: 18px;">submit</button>
+    <button class="Recipe_Form_Submit_button" style="font-size: 18px;" (click)="handleSubmit($event)">submit</button>
 
     
 </div>
