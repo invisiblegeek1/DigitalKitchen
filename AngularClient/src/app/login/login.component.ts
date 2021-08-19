@@ -10,8 +10,10 @@ import { RegisterService } from '../register.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService:LoginService,private registerService:RegisterService,private recipeService:RecipeFormService) { }
-  myToken?:any;
+  constructor(private loginService:LoginService,private registerService:RegisterService,private recipeService:RecipeFormService) {
+    
+   }
+  myToken:any;
   ngOnInit(): void {
   }
 
@@ -19,8 +21,12 @@ export class LoginComponent implements OnInit {
     console.log(loginData)
     this.loginService.login(loginData).subscribe(
       (token:any)=>{
-        this.myToken="Bearer ".concat(token)
+        console.log(token);
+       let t= JSON.stringify(token);
+        this.myToken="Bearer "+token.jwt;
+        console.log(this.myToken);
         this.recipeService.token=this.myToken;
+        console.log(this.myToken);
       }
     );
   }

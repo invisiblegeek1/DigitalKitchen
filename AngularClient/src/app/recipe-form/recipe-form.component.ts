@@ -38,6 +38,7 @@ export class RecipeFormComponent  {
 
   handleSubmit(event: any) {
 
+    
     if (this.profileFormGroup.valid) {
       let categoryList= this.profileFormGroup.controls['category'].value.map( ( el:any )=>{ 
         return el.category; 
@@ -61,7 +62,10 @@ export class RecipeFormComponent  {
 
    this.recipeService.saveRecipe(recipe).subscribe((response)=>{
      console.log(response);
+   },(err)=>{
+     console.log(err);
    });
+   
   }
 }
 

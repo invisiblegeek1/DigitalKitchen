@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable({
@@ -8,20 +8,31 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 export class RecipeFormService {
   recipeData: Array<any> = []
 
-  token?:any;
+  token:any;
 
-  constructor(private httpClient: HttpClient,private httpHeader:HttpHeaders) { }
+  options:any;
 
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': this.token });
+  constructor(private httpClient: HttpClient) { 
+    
+    
+  }
+   
 
-   options = { headers: this.headers };
+  // headers = new HttpHeaders({
+  //   'Content-Type': 'application/json',
+  //   'Authorization': this.token });
+
 
   saveRecipe(data:any){
+
     console.log(data);
+    console.log(this.options);
+   let headers={
+      'Authorization': this.token
+      
+    }
     let url  = `http://localhost:8081/api/private/recipes`
-     return this.httpClient.post(url,data,this.options);
+     return this.httpClient.post(url,data,{ headers: headers });
 
   }
 }

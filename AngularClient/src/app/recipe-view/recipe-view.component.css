@@ -1,0 +1,40 @@
+body {
+    font-family: "Averia Libre", cursive;
+    color: black;
+    background-color: white;
+    line-height: 20px;
+  }
+  p {
+    font-family: "Averia Libre", cursive;
+    color: black;
+  }
+  h2,
+  h3 {
+    font-family: "Rubik Mono One", cursive;
+    color: burlywood;
+    font-size: 25px;
+  }
+  h1 {
+    font-size: 50px;
+    font-family: "Rubik Mono One", cursive;
+    color: burlywood;
+    line-height: 10px;
+  }
+  
+  .title {
+    padding: 20px;
+    margin: 30px;
+    background-color: oldlace;
+  }
+  .ingredients {
+    padding: 20px;
+    margin: 30px;
+    background-color: seashell;
+  }
+  
+  .instructions {
+    padding: 20px;
+    margin: 30px;
+    line-height: 40px;
+    background-color: oldlace;
+  }
