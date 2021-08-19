@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   OnSubmit(loginData:any){
+    
     console.log(loginData)
     this.loginService.login(loginData).subscribe(
       (token:any)=>{

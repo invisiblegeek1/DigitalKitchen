@@ -37,7 +37,7 @@ export class RecipeFormComponent  {
   }
 
   handleSubmit(event: any) {
-
+    this.profileFormGroup.reset();
     
     if (this.profileFormGroup.valid) {
       let categoryList= this.profileFormGroup.controls['category'].value.map( ( el:any )=>{ 
