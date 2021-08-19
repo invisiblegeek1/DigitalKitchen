@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes=[
   {path:'Home',component: LandingPageContainerComponent},
+  {path:'',component: LandingPageContainerComponent},
 
   {path:'recipeform',component: RecipeFormComponent},
   {path:'recipe',component: RecipeViewComponent},
