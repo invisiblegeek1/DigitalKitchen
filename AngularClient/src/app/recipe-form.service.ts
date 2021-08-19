@@ -9,17 +9,21 @@ import {HttpClient} from '@angular/common/http';
 })
 export class RecipeFormService {
   recipeData: Array<any> = []
+  token:any;
 
+  options:any;
   constructor(private httpClient: HttpClient) { }
 
-  getRecipeData(data:any){
-    console.log(data);
-    let url  = ""
-    // return this.httpClient.post(url,data).subscribe(
-      // recipeData =>{
-      //   console.log(data)
-      // }
+  saveRecipe(data:any){
 
-    // )
+    console.log(data);
+    console.log(this.options);
+   let headers={
+      'Authorization': this.token
+      
+    }
+    let url  = `http://localhost:8081/api/private/recipes`
+     return this.httpClient.post(url,data,{ headers: headers });
+
   }
 }

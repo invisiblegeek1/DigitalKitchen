@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
+import { RecipeFormService } from '../recipe-form.service';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService:LoginService,private registerService:RegisterService,private recipeService:RecipeFormService) {}
 
+  myToken:any;
+  
   ngOnInit(): void {
   }
 
   OnSubmit(loginData:any){
-    console.log(loginData)
+    console.log(loginData);
+
+    this.loginService.login(loginData).subscribe(
+      (token:any)=>{
+        console.log(token);
+       let t= JSON.stringify(token);
+        this.myToken="Bearer "+token.jwt;
+        console.log(this.myToken);
+        this.recipeService.token=this.myToken;
+        console.log(this.myToken);
+      }
+    );
+
   }
   onSubmit(registerData:any){
     console.log(registerData)

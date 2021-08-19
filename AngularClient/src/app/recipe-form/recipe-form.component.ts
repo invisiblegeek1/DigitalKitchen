@@ -60,6 +60,14 @@ export class RecipeFormComponent  {
       }
 
    console.log(recipe);
+   this.recipeService.saveRecipe(recipe).subscribe((response)=>{
+    console.log(response);
+  },(err)=>{
+    console.log(err);
+  });
+
+
+
   }
 }
 
@@ -108,7 +116,7 @@ export class RecipeFormComponent  {
     this.nutrition.removeAt(idx)
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private recipeService:RecipeFormService) { }
 
   ngOnInit(): void {
   }
