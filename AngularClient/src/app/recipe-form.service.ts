@@ -7,11 +7,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class RecipeFormService {
   recipeData: Array<any> = []
-  token:any;
-
   
-
-  options:any;
 
   constructor(private httpClient: HttpClient) { 
     
@@ -19,21 +15,11 @@ export class RecipeFormService {
   }
    
 
-  // headers = new HttpHeaders({
-  //   'Content-Type': 'application/json',
-  //   'Authorization': this.token });
-
 
   saveRecipe(data:any){
-
-    console.log(data);
-    console.log(this.options);
-   let headers={
-      'Authorization': this.token
-      
-    }
-    let url  = `http://localhost:8081/api/private/recipes`
-     return this.httpClient.post(url,data,{ headers: headers });
-
+  let url  = `http://localhost:8081/api/private/recipes`
+    return this.httpClient.post(url,data,{headers:{
+      'Authorization':'Bearer '+localStorage.getItem("Auth-Token")
+    }})
   }
 }

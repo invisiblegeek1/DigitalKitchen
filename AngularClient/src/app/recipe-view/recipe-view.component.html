@@ -1,4 +1,102 @@
-<div class=title>
+<div class="Recipe_Container">
+  <div class="Recipe_Image_Container">
+    <img [src]="recipe.image_url" alt="" class="Recipe_Image">
+  </div>
+
+  <div class="Recipe_Title_Catagory_Container">
+    <div class="Recipe_catagory_Container" id="abc">
+        <p class="Recipe_Catagory" *ngFor="let catagory of recipe.category">&nbsp;&nbsp;{{catagory}}&nbsp;&nbsp;|</p>
+    </div>
+        <p class="Recipe_Title">{{recipe.name}}</p>
+  
+  </div>
+
+
+  <div class="Recipe_Ingredients_Container">
+    <ul class="Recipe_Ingredients_List_Container">
+      <li class="Recipe_Ingredient_List" *ngFor="let item of recipe.items">
+        <div class="Ingredient_Amount">{{item.amount}}</div>
+        <div class="Ingredient_Name">{{item.ingredients}}</div>
+
+      </li>
+    </ul>
+  
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class=title>
 
     <h1> HONEY CAKE </h1>
     <hr />
@@ -33,4 +131,4 @@
   <br />
   <br />
   <br />
-  <hr />
+  <hr /> -->

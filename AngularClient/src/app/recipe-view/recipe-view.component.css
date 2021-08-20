@@ -1,40 +1,57 @@
-body {
-    font-family: "Averia Libre", cursive;
-    color: black;
-    background-color: white;
-    line-height: 20px;
-  }
-  p {
-    font-family: "Averia Libre", cursive;
-    color: black;
-  }
-  h2,
-  h3 {
-    font-family: "Rubik Mono One", cursive;
-    color: burlywood;
-    font-size: 25px;
-  }
-  h1 {
-    font-size: 50px;
-    font-family: "Rubik Mono One", cursive;
-    color: burlywood;
-    line-height: 10px;
-  }
-  
-  .title {
-    padding: 20px;
-    margin: 30px;
-    background-color: oldlace;
-  }
-  .ingredients {
-    padding: 20px;
-    margin: 30px;
-    background-color: seashell;
-  }
-  
-  .instructions {
-    padding: 20px;
-    margin: 30px;
-    line-height: 40px;
-    background-color: oldlace;
-  }
+.Recipe_Container{
+display: flex;
+width:100%;
+height:100vh;
+align-items: center;
+justify-content: center;
+flex-flow: column;
+flex-flow: column;
+
+}
+.Recipe_Image_Container{
+display: flex;
+width:100%;
+height:100vh;
+
+}
+.Recipe_Image{
+display: inline-block;
+width:100%;
+height:100vh;
+object-fit:cover;
+}
+.Recipe_Title_Catagory_Container{
+    display: flex;
+    width:100%;
+    align-items: flex-start;
+    flex-flow: column;
+    justify-content: flex-start;
+    padding-left: 260px;
+    
+    height:100px;
+    box-sizing: border-box;
+
+}
+.Recipe_Catagory{
+    display: inline;
+    font-size: 27px;
+    color:#bababa;
+    font-family: "Helvetica Neue",Helvetica
+
+}
+.Recipe_Title{
+    display: flex;
+    font-size: 40px;
+    color:rgb(17, 4, 4);
+    font-family: "Helvetica Neue",Helvetica;
+    
+
+}
+.Recipe_catagory_Container{
+    display: flex;
+    height: 100px;
+    flex-flow: row;
+
+    
+    
+}
