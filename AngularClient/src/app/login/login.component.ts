@@ -10,10 +10,10 @@ import { RegisterService } from '../register.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService:LoginService,private registerService:RegisterService,private recipeService:RecipeFormService) {
-    
-   }
+  constructor(private loginService:LoginService,private registerService:RegisterService,private recipeService:RecipeFormService) {}
+
   myToken:any;
+  
   ngOnInit(): void {
   }
 
