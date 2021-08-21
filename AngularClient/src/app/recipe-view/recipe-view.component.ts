@@ -6,10 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-view.component.css']
 })
 export class RecipeViewComponent implements OnInit {
+  public NutritionAccordian=true;
+  public IngredientsAccordian=true;
+  public ProcessAccordian=true;
+
+
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  NutrientAccordianChange(){
+    this.NutritionAccordian=!this.NutritionAccordian;
+  }
+  IngredientAccordianChange(){
+    this.IngredientsAccordian=!this.IngredientsAccordian;
+  }
+  ProcessAccordianChange(){
+    this.ProcessAccordian=!this.ProcessAccordian;
+
+
   }
 
    recipe={
@@ -18,7 +35,7 @@ export class RecipeViewComponent implements OnInit {
     image_url:"https://d1uz88p17r663j.cloudfront.net/resized/4cdc8a73516386a08888a432adbb7af0_A42I2602_1500_700.jpg", 
   
     total_time:70,
-    nutrition:[
+    nutritions:[
       {nutrition:"energy",amount:"40"},
       {nutrition:"protien",amount:"40"},
       {nutrition:"fat",amount:"4"},
