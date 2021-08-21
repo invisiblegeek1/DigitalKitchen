@@ -8,12 +8,13 @@ flex-flow: column;
 flex-flow: column;
 
 }
+
 .Recipe_Image_Container{
 display: flex;
 width:100%;
 height:100vh;
-
 }
+
 .Recipe_Image{
 display: inline-block;
 width:100%;
@@ -52,6 +53,5 @@ object-fit:cover;
     height: 100px;
     flex-flow: row;
 
-    
-    
+       
 }
