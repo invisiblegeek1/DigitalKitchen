@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { RegisterService } from '../register.service';
@@ -9,6 +9,9 @@ import { RegisterService } from '../register.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  @ViewChild("loginform") loginValue :  any
+  @ViewChild("registerform") registerValue :  any
 
   constructor(private loginService:LoginService,private registerService:RegisterService,private router:Router) {}
 
@@ -29,15 +32,10 @@ export class LoginComponent implements OnInit {
       error: (err: any) => {
         this.loginErrorMessage=err.error.messsage
       }}
-      // (token:any)=>{
-     
-      //  let t= JSON.stringify(token);
-      //   this.myToken="Bearer "+token.jwt;
-     
-      //   this.recipeService.token=this.myToken;
-     
-      // }
+      
     );
+    this.loginValue.reset('')
+
   }
   onSubmit(registerData:any){
     this.registerService.register(registerData).subscribe(
@@ -45,6 +43,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
       }
     );
+    this.registerValue.reset('')
   }
   isShow = false
   showForm(){

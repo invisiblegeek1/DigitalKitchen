@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class RecipeFormService {
-  recipeData: Array<any> = []
+  
   
 
   constructor(private httpClient: HttpClient) { 

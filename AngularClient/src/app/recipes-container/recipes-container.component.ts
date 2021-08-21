@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    localStorage.setItem("pageNo","0");
+
+   }
 
   ngOnInit(): void {
+    
   }
 
 }
