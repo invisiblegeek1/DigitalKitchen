@@ -74,3 +74,34 @@
     width: 350px;
     flex-flow: column;
 }
+
+.Recipe_Prev_Btn_Container{
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    background-color:transparent;
+    left: 265px;
+    top: 40%;
+    position:fixed;
+    z-index: 9999;
+    border:0px solid transparent;
+    cursor: pointer;
+    
+    
+}
+.Recipe_Next_Btn_Container{
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    background-color:transparent;
+    right: 110px;
+    top: 40%;
+    position:fixed;
+    z-index: 9999;
+    border:0px solid transparent;
+    cursor: pointer;
+
+
+
+
+}
