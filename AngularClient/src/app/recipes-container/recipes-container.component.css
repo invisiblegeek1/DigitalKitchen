@@ -133,7 +133,7 @@
     position: absolute;
     background-color:transparent;
     left: 265px;
-    top: 40%;
+    top: 55%;
     position:fixed;
     z-index: 9999;
     border:0px solid transparent;
@@ -147,7 +147,7 @@
     position: fixed;
     background-color:transparent;
     right: 110px;
-    top: 40%;
+    top: 55%;
     position:fixed;
     z-index: 9999;
     border:0px solid transparent;
