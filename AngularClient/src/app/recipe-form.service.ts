@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../environments/environment.prod'
+
 
 
 @Injectable({
@@ -17,7 +19,7 @@ export class RecipeFormService {
 
 
   saveRecipe(data:any){
-  let url  = `http://localhost:8081/api/private/recipes`
+  let url  = `${environment.baseurl}/api/private/recipes`
     return this.httpClient.post(url,data,{headers:{
       'Authorization':'Bearer '+localStorage.getItem("Auth-Token")
     }})

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Subject } from 'rxjs';
+import {environment} from '../environments/environment.prod'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +13,8 @@ export class RecipeService {
   page:any=0
 
   recipeStream:Subject<any>=new Subject();
+
+  
 
   constructor(private httpClient: HttpClient) { 
     
@@ -35,7 +39,7 @@ export class RecipeService {
   }
 
   getAllRecipes(){
-    this.url=`http://localhost:8081/api/recipes/all?page=${this.page}`
+    this.url=`${environment.baseurl}/api/recipes/all?page=${this.page}`
 
     this.httpClient.get(this.url).subscribe((recipes:any)=>{
       this.recipeStream.next(recipes);
@@ -43,7 +47,7 @@ export class RecipeService {
   }
 
   getRecipeByName(name:any){
-    this.url=`http://localhost:8081/api/recipes/paginated/${name}?page=${this.page}`
+    this.url=`${environment.baseurl}/api/recipes/paginated/${name}?page=${this.page}`
 
     this.httpClient.get(this.url).subscribe((recipes:any)=>{
       this.recipeStream.next(recipes);
@@ -51,7 +55,7 @@ export class RecipeService {
   }
 
   getRecipeByCategory(category:any){
-    this.url=`http://localhost:8081/api/recipes/paginated/${category}?page=${this.page}`
+    this.url=`${environment.baseurl}/api/recipes/paginated/${category}?page=${this.page}`
 
     this.httpClient.get(this.url).subscribe((recipes:any)=>{
       this.recipeStream.next(recipes);
@@ -60,7 +64,7 @@ export class RecipeService {
 
 
   getRecipeById(id:any){
-    this.url=`http://localhost:8081/api/recipes//${id}`
+    this.url=`${environment.baseurl}/api/recipes//${id}`
 
    return this.httpClient.get(this.url);
   }
