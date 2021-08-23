@@ -32,7 +32,7 @@
         <button class="Login_Form_Register_button" (click)="showForm()" type="submit" value="Submit">Register
             Here.</button>
         <div *ngIf="isShow" class="Login_Register_Form_Section" id="Register_Form">
-            <form #registerform="ngForm" ngNativeValidate (ngSubmit)="onSubmit(registerform.value)"
+            <form #registerform="ngForm" ngNativeValidate (ngSubmit)="onRegiterFormSubmit(registerform.value)"
                 class="Login_Register_Form" action="" method="POST">
                 <div class="Login_Register_Form_Username">
                     <label for="name">Name:</label>

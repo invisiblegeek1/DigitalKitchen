@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../environments/environment.prod'
 
 
 @Injectable({
@@ -12,8 +13,14 @@ export class LoginService {
   
 
   login(userDetails:any){
-    let url  = `http://localhost:8081/login`
+    let url  = `${environment.baseurl}/login`
      return this.httpClient.post(url,userDetails);
+  }
+
+  RegiterUser(registerData:any){
+    let url  = `${environment.baseurl}/api/users`
+    return this.httpClient.post(url,registerData);
+
   }
 
 

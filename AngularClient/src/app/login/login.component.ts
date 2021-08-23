@@ -40,8 +40,12 @@ export class LoginComponent implements OnInit {
     this.loginValue.reset('')
 
   }
-  onSubmit(registerData:any){
+  onRegiterFormSubmit(registerData:any){
     console.log(registerData)
+    this.loginService.RegiterUser(registerData).subscribe((response:any)=>{
+      console.log(response);
+
+    })
     console.log("Regiestered Succesufully")
 
     this.registerValue.reset('')
