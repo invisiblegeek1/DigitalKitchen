@@ -115,6 +115,7 @@ export class RecipeFormComponent  {
 
 
   }
+  this.profileFormGroup.reset()
 }
 
 
