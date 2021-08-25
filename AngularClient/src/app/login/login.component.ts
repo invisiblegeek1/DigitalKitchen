@@ -23,9 +23,11 @@ export class LoginComponent implements OnInit {
   }
 
   OnSubmit(loginData:any){  
-    console.log(loginData)
+    console.log(loginData);
+    
     this.loginService.login(loginData).subscribe(
      { next: (response: any) => {
+       console.log(response);
         this.loginErrorMessage=null;
         localStorage.setItem("Auth-Token", response.jwt)
      //   this.router.navigate(['RecipeFormComponent'])
