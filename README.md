@@ -1,9 +1,11 @@
-# Revature-Project-2
+
 
 ## Digital Kitchen
 
+#Overview
 
 It is an Web application build on Java, JPA , JSP  and NO-SQL technologies.
+
 - Build with maven.
 - Used design pattern for best practice and performance.
 - Using JPA the database is connect with the java.
@@ -12,12 +14,10 @@ It is an Web application build on Java, JPA , JSP  and NO-SQL technologies.
 - Tomcat server is used run the application.
 
 ##Stack 
-- Front-End 
-      -Angular 
-- Back-End
-      - Spring Boot
-- DataBase 
-      -MongoDB
+-Front-End -Angular
+-Back-End - Spring Boot
+-DataBase -MongoDB
+-Editor - Intelligie IDE
 
 
 ## Features
@@ -49,7 +49,7 @@ This maven project used some open sources.
 
 - [Eclipse] An Editior which is used to work with projects (Integrated Developement Environment)
 - [Tomcat] - It's web container used to run the application
-- [SQL] - Structured Qurey Language, An relational database designed for the retrieval and management of data. .
+- [NO-SQL] - A Document based database to store application data in BJSON format .
 - [JSP] - It is used to create dynamic web content.
 - [Servlet] - It is a class that handles requests, process them and respond back with a response
 - [CSS] - It is used to design the web pages.
