@@ -17,19 +17,16 @@ It is an Web application build on Java, JPA , JSP  and SQL technologies.
 #Roles and Responsibilities
 
 - Developed a Recipe Management WebApplication
-
-- Used Spring Boot for Back-End Application
-
-- Used Angular For designing the front End
-
+- Used Spring Boot for Back-End Application.
+- Followed SOLID and design principles like a factory pattern, etc.
+- Used dependencies like web services, dev tools, data JPA, etc.
+- Used Angular For designing the Front End.
+- Followed component architecture and dependency injection.
 - Developed a algorithm that satisfies the user requirements.
-
-- In Angular, Front End divided into components based on the principles
-
-- Used Mongodb to store the database retrieved from the application
-
+- And added with some extra features like web authentication.
+- In Angular, Front End is developed in a responsive way which is suitable for many devices.
+- Used MongoDB to store the database retrieved from the application
 - Created Custom Exception to handle the Exceptions  
-
 
 
 ## Tech
