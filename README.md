@@ -6,17 +6,23 @@
 It is an Web application build on Java, JPA , JSP  and SQL technologies.
 - Build with maven.
 - Used design pattern for best practice and performance.
-- Using JPA the database is connect with the java
+- Using JPA the database is connect with the java.
 - sql is used to store the data retreived from the application
 - JSP pages are used to display the html code in web browser. 
 - Tomcat server is used run the application.
+
+
 ## Features
 
-- 
+- The User can View the recipe which is available in the application.
+- User can add their own type of recipes using the Recipe form.
+- The user must login to add their recipes called Authentication.
+- And also concept of Authentication & Authorization is used.
+
 
 #Roles and Responsibilities
 
-- Developed a Recipe Management WebApplication
+- Developed a Recipe Management WebApplication.
 - Used Spring Boot for Back-End Application.
 - Followed SOLID and design principles like a factory pattern, etc.
 - Used dependencies like web services, dev tools, data JPA, etc.
@@ -25,8 +31,8 @@ It is an Web application build on Java, JPA , JSP  and SQL technologies.
 - Developed a algorithm that satisfies the user requirements.
 - And added with some extra features like web authentication.
 - In Angular, Front End is developed in a responsive way which is suitable for many devices.
-- Used MongoDB to store the database retrieved from the application
-- Created Custom Exception to handle the Exceptions  
+- Used MongoDB to store the database retrieved from the application.
+- Created Custom Exception to handle the Exceptions.
 
 
 ## Tech
