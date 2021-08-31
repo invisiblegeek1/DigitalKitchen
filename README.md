@@ -11,6 +11,14 @@ It is an Web application build on Java, JPA , JSP  and SQL technologies.
 - JSP pages are used to display the html code in web browser. 
 - Tomcat server is used run the application.
 
+##Stack 
+- Front-End 
+      -Angular 
+- Back-End
+      - Spring Boot
+- DataBase 
+      -MongoDB
+
 
 ## Features
 
