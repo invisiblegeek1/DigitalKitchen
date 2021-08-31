@@ -3,7 +3,7 @@
 ## Digital Kitchen
 
 
-It is an Web application build on Java, JPA , JSP  and SQL technologies.
+It is an Web application build on Java, JPA , JSP  and NO-SQL technologies.
 - Build with maven.
 - Used design pattern for best practice and performance.
 - Using JPA the database is connect with the java.
